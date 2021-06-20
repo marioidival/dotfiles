@@ -1,0 +1,6 @@
+[user]
+	signingkey = 415C7E9D2D7F5AB3
+	name = Mario Idival
+	email = marioidival@gmail.com
+[commit]
+	gpgsign = true
