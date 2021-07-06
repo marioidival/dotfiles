@@ -48,18 +48,6 @@ inoremap <up> <ESC>:echoerr 'use k to up'<CR>
 inoremap <down> <ESC>:echoerr 'use j to down'<CR>                                                          
 inoremap <left> <ESC>:echoerr 'use h to left'<CR>                                                          
 inoremap <right> <ESC>:echoerr 'use l to right'<CR>                                                        
-" nnoremap <silent> <leader>f <cmd>lua vim.lsp.buf.formatting()<CR>
-" nnoremap <silent> <leader>a <cmd>lua vim.lsp.buf.code_action()<CR>
-" " lsp config
-" nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
-" nnoremap <silent> gD <cmd>lua vim.lsp.buf.declaration()<CR>
-" nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>
-" nnoremap <silent> gi <cmd>lua vim.lsp.buf.implementation()<CR>
-" nnoremap <silent> rn <cmd>lua vim.lsp.buf.rename()<CR>
-" nnoremap <silent> K <cmd>lua vim.lsp.buf.hover()<CR>
-" nnoremap <silent> <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
-" nnoremap <silent> <C-n> <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
-" nnoremap <silent> <C-p> <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
 
 " auto format
 autocmd BufWritePre *.py lua vim.lsp.buf.formatting_sync(nil, 100)
@@ -71,11 +59,6 @@ autocmd BufWritePre *.js lua vim.lsp.buf.formatting_sync(nil, 100)
 lua << EOF
 EOF
 autocmd FileType go setlocal omnifunc=v:lua.vim.lsp.omnifunc
-
-" require'lspconfig'.pyright.setup{}
-" require'lspconfig'.rust_analyzer.setup{}
-" require'lspconfig'.clangd.setup{}
-" require'lspconfig'.tsserver.setup{}
 
 lua << EOF
 require'lspsaga'.init_lsp_saga()
@@ -177,15 +160,6 @@ lua << EOF
 
 EOF
 
-
-" plugins settings
-" au Filetype c,cpp  setl omnifunc=v:lua.vim.lsp.omnifunc
-" au Filetype python setl omnifunc=v:lua.vim.lsp.omnifunc
-" au Filetype rust   setl omnifunc=v:lua.vim.lsp.omnifunc
-" au Filetype lua    setl omnifunc=v:lua.vim.lsp.omnifunc
-" au Filetype vim    setl omnifunc=v:lua.vim.lsp.omnifunc
-" au FileType go     setl omnifunc=v:lua.vim.lsp.omnifunc
-
 set completeopt=menuone,noinsert,noselect
 
 call sign_define("LspDiagnosticsSignError", {"text" : ">>", "texthl" : "LspDiagnosticsSignError"})
@@ -237,4 +211,3 @@ let g:completion_chain_complete_list = {
     \]
     \   }
     \}
-
