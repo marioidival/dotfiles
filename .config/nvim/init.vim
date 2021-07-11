@@ -27,6 +27,7 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
 
 Plug 'itchyny/lightline.vim'
+Plug 'preservim/nerdtree'
 
 " Auto completion
 Plug 'hrsh7th/nvim-compe'
@@ -211,3 +212,9 @@ let g:completion_chain_complete_list = {
     \]
     \   }
     \}
+
+" Nerd Tree
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
