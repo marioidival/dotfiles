@@ -1,17 +1,15 @@
-syntax enable
 syntax on
-filetype indent plugin on
 let mapleader=","
+
 set relativenumber
-set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__,node_modules,target,
+set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__,node_modules,target
 set noswapfile
-set backspace=indent,eol,start
+set backspace=indent,start,eol
 set nobackup
 set nowritebackup
-set signcolumn=yes
-set completeopt = "menuone,noselect"
+set completeopt=menuone,noinsert,noselect
 set smartindent
-set tabstop=4 softtabstop=4
+set tabstop=4 shiftwidth=4 expandtab
 
 call plug#begin()
 Plug 'neovim/nvim-lspconfig'
@@ -28,12 +26,20 @@ Plug 'kkoomen/vim-doge', { 'do': { -> doge#install() } }
 
 Plug 'itchyny/lightline.vim'
 Plug 'preservim/nerdtree'
+Plug 'plasticboy/vim-markdown'
+Plug 'phaazon/hop.nvim'
+
+" colorscheme
+Plug 'arzg/vim-substrata'
 
 " Auto completion
 Plug 'hrsh7th/nvim-compe'
-
 call plug#end()
+
 let g:python3_host_prog='/home/kakarotto/.asdf/shims/python'
+
+" colorscheme activate
+colorscheme substrata
 
 " mapping
 imap hh <esc>
@@ -58,17 +64,11 @@ autocmd BufWritePre *.ts lua vim.lsp.buf.formatting_sync(nil, 100)
 autocmd BufWritePre *.js lua vim.lsp.buf.formatting_sync(nil, 100)
 
 lua << EOF
-EOF
-autocmd FileType go setlocal omnifunc=v:lua.vim.lsp.omnifunc
-
-lua << EOF
 require'lspsaga'.init_lsp_saga()
 require'nvim-treesitter.configs'.setup {
   highlight = { enable = true },
 }
-EOF
 
-lua << EOF
 require'compe'.setup {
   enabled = true;
   autocomplete = true;
@@ -157,11 +157,6 @@ for _, lsp in ipairs(servers) do
 end
 EOF
 
-lua << EOF
-
-EOF
-
-set completeopt=menuone,noinsert,noselect
 
 call sign_define("LspDiagnosticsSignError", {"text" : ">>", "texthl" : "LspDiagnosticsSignError"})
 call sign_define("LspDiagnosticsSignWarning", {"text" : "⚠", "texthl" : "LspDiagnosticsSignWarning"})
@@ -218,3 +213,25 @@ nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
+
+" vim-markdown
+" disable header folding
+let g:vim_markdown_folding_disabled = 1
+
+" do not use conceal feature, the implementation is not so good
+let g:vim_markdown_conceal = 0
+
+" disable math tex conceal feature
+let g:tex_conceal = ""
+let g:vim_markdown_math = 1
+
+" support front matter of various format
+let g:vim_markdown_frontmatter = 1  " for YAML format
+let g:vim_markdown_toml_frontmatter = 1  " for TOML format
+let g:vim_markdown_json_frontmatter = 1  " for JSON format
+let g:vim_markdown_new_list_item_indent = 2
+
+" HOP keybindgs
+lua << EOF
+vim.api.nvim_set_keymap("n", "$", "<cmd>lua require'hop'.hint_words()<CR>", {})
+EOF
