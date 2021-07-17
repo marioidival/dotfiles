@@ -19,6 +19,7 @@ return require('packer').startup(function()
     use { 'phaazon/hop.nvim' }
     use { 'arzg/vim-substrata' }
     use { 'mfussenegger/nvim-dap' }
+    use { 'nvim-telescope/telescope-dap.nvim' }
     use { 'hrsh7th/nvim-compe' }
-    use { 'hrsh7th/nvim-compe' }
+    use { 'b3nj5m1n/kommentary' }
 end)

@@ -24,3 +24,6 @@ require('plugins')
 
 -- my general configurations
 require('general')
+
+-- debug
+require('dap')
