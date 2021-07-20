@@ -121,3 +121,17 @@ vim.api.nvim_set_keymap("n", "$", "<cmd>lua require'hop'.hint_words()<cr>", {})
 -- Fugitive
 vim.api.nvim_set_keymap("n", "<leader>gs", "<cmd>Gstatus<cr>", {})
 
+
+-- lualine
+require('lualine').setup()
+
+-- git signs
+require('gitsigns').setup {
+    signs = {
+        add = { hl = 'GitSignsAdd', text = '+', numhl='GitSignsAddNr', linehl='GitSignsAddLn' },
+        change = { hl = 'GitSignsChange', text = '@', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn' },
+        delete = { hl = 'GitSignsDelete', text = '_', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn' },
+        topdelete = { hl = 'GitSignsDelete', text = '‾', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn' },
+        changedelete = { hl = 'GitSignsChange', text = '~', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn' },
+    }
+}

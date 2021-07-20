@@ -22,4 +22,18 @@ return require('packer').startup(function()
     use { 'nvim-telescope/telescope-dap.nvim' }
     use { 'hrsh7th/nvim-compe' }
     use { 'b3nj5m1n/kommentary' }
+    use {
+      'hoob3rt/lualine.nvim',
+      requires = {{'kyazdani42/nvim-web-devicons', opt = true}}
+    }
+
+    -- Git
+    use { 'f-person/git-blame.nvim' }
+    use {
+        'lewis6991/gitsigns.nvim',
+        requires = { 'nvim-lua/plenary.nvim' }
+    }
+
+    -- colorscheme
+    use { 'marko-cerovac/material.nvim' }
 end)
