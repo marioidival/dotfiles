@@ -1,7 +1,7 @@
 local utils = require('utils')
 
 utils.set_keybinds('n', '<C-Space>', '<cmd>noh<cr>')
-utils.set_keybinds('i', 'hh', '<esc>')
+utils.set_keybinds('i', 'jk', '<esc>')
 utils.set_keybinds('n', ';', ':')
 utils.set_keybinds('n', ':', ';')
 utils.set_keybinds('n', '<up>', '<esc><cmd>echoerr "use k to up"')
