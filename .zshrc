@@ -1,6 +1,6 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-export ZSH="/home/kakarotto/.oh-my-zsh"
+export ZSH="/Users/kakarotto/.oh-my-zsh"
 
 ZSH_THEME="cloud"
 
