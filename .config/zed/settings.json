@@ -1,0 +1,17 @@
+{
+  "project_panel": {
+    "dock": "right",
+    "git_status": true
+  },
+  "theme": "macOS Classic Light",
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "auto_update": false,
+  "default_dock_anchor": "right",
+  "vim_mode": true,
+  "ui_font_size": 18,
+  "buffer_font_size": 19,
+  "buffer_font_family": "IosevkaTermSlab Nerd Font Mono"
+}
