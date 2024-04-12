@@ -1,0 +1,16 @@
+[
+  {
+    "context": "Editor && vim_mode == insert && !menu",
+    // insert mode
+    "bindings": {
+      "j k": "vim::NormalBefore" // remap jj in insert mode to escape.
+    }
+  },
+  {
+    "context": "Editor && vim_mode == normal && !VimWaiting && !menu",
+    // normal mode
+    "bindings": {
+      ";": ["workspace::SendKeystrokes", ":"]
+    }
+  }
+]
